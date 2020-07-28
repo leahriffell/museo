@@ -33,7 +33,9 @@ class CuratorTest < Minitest::Test
       born: "1902",      
       died: "1984",      
       country: "United States"      
-    })          
+    })
+    @curator.add_artist(@artist_1)
+    @curator.add_artist(@artist_2)
   end
 
   def test_it_exists 
@@ -49,16 +51,19 @@ class CuratorTest < Minitest::Test
   end
 
   def test_it_can_add_artists 
-    assert_equal [], @curator.artists 
-    @curator.add_artist(@artist_1)
-    assert_equal [@artist_1], @curator.artists 
-    @curator.add_artist(@artist_2)
-    assert_equal [@artist_1, @artist_2], @curator.artists 
+    curator = Curator.new
+    assert_equal [], curator.artists 
+    curator.add_artist(@artist_1)
+    assert_equal [@artist_1], curator.artists 
+    curator.add_artist(@artist_2)
+    assert_equal [@artist_1, @artist_2], curator.artists 
   end
 
   def test_it_can_find_artist_by_artist_id 
-    @curator.add_artist(@artist_1)
-    @curator.add_artist(@artist_2)
     assert_equal @artist_1, @curator.find_artist_by_id("1")
+  end
+
+  def test_it_can_return_photographs_by_artist 
+    
   end
 end
