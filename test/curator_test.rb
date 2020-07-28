@@ -55,4 +55,8 @@ class CuratorTest < Minitest::Test
     @curator.add_artist(@artist_2)
     assert_equal [@artist_1, @artist_2], @curator.artists 
   end
+
+  def test_it_can_find_artist_by_artist_id 
+    assert_equal @artist_1, @curator.find_artist_by_id("1")
+  end
 end
