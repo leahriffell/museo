@@ -100,4 +100,9 @@ class CuratorTest < Minitest::Test
   def test_it_can_return_artists_with_multiple_photographs 
     assert_equal ["Diane Arbus"], @curator.artists_with_multiple_photographs
   end
+
+  def test_it_can_return_photos_taken_by_artists_from_a_country
+    assert_equal [@photo_2, @photo_3, @photo_4], @curator.photographs_taken_by_artist_from("United States")
+    assert_equal [], @curator.photographs_taken_by_artist_from("Argentina") 
+  end
 end
