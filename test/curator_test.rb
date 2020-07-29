@@ -89,9 +89,15 @@ class CuratorTest < Minitest::Test
   end
 
   def test_it_can_return_photographs_by_artist 
-    # artists_and_photos = {
+    artists_and_photos = {
+      @artist_1 => [@photo_1],
+      @artist_2 => [@photo_2],
+      @artist_3 => [@photo_3, @photo_4]
+    }
+    assert_equal artists_and_photos, @curator.photographs_by_artist
+  end
 
-    # }
-    # assert_equal 
+  def test_it_can_return_artists_with_multiple_photographs 
+    assert_equal ["Diane Arbus"], @curator.artists_with_multiple_photographs
   end
 end
