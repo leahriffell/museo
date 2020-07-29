@@ -20,6 +20,18 @@ class CuratorTest < Minitest::Test
       artist_id: "2",      
       year: "1941"      
     })
+    @photo_3 = Photograph.new({    
+      id: "3",      
+      name: "Identical Twins, Roselle, New Jersey",      
+      artist_id: "3",      
+      year: "1967"      
+    })     
+    @photo_4 = Photograph.new({    
+      id: "4",      
+      name: "Monolith, The Face of Half Dome",      
+      artist_id: "3",      
+      year: "1927"      
+    })   
     @artist_1 = Artist.new({
       id: "1",      
       name: "Henri Cartier-Bresson",      
@@ -34,8 +46,20 @@ class CuratorTest < Minitest::Test
       died: "1984",      
       country: "United States"      
     })
+    @artist_3 = Artist.new({    
+      id: "3",      
+      name: "Diane Arbus",      
+      born: "1923",      
+      died: "1971",      
+      country: "United States"      
+    })
     @curator.add_artist(@artist_1)
     @curator.add_artist(@artist_2)
+    @curator.add_artist(@artist_3)
+    @curator.add_photograph(@photo_1)
+    @curator.add_photograph(@photo_2)
+    @curator.add_photograph(@photo_3)
+    @curator.add_photograph(@photo_4)
   end
 
   def test_it_exists 

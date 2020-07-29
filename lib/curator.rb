@@ -22,4 +22,13 @@ class Curator
   def find_artist_by_id(artist_id)
     @artists.find {|artist| artist.id == artist_id}
   end
+
+  def photographs_by_artist 
+    @artists.reduce(Hash.new {|h, k| h[k] = []}) do |result, artist| 
+      @photographs.each do |photo|
+      result[artist] << photo if photo.artist_id == artist.id
+      end
+      result
+    end
+  end
 end
