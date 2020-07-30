@@ -52,4 +52,13 @@ class Curator
     end 
     all_photos
   end
+
+  def load_artists(data_path)
+    all_artists = []
+    CSV.foreach(data_path, headers: true, header_converters: :symbol) do |row|
+      artist = Artist.new(row.to_h)
+      all_artists << artist
+    end 
+    all_artists
+  end
 end
