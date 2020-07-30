@@ -112,4 +112,11 @@ class CuratorTest < Minitest::Test
     assert_equal 4, @curator.load_photographs(photo_data).size
     assert_equal true, @curator.load_photographs(photo_data).all? {|photo| photo.class == Photograph}
   end
+
+  def test_it_can_load_artists
+    artist_data = './data/artists.csv'
+    assert_instance_of Array, @curator.load_artists(artist_data)
+    assert_equal 6, @curator.load_artists(artist_data).size
+    assert_equal true, @curator.load_artists(artist_data).all? {|artist| artist.class == Artist}
+  end
 end
