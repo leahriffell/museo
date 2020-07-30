@@ -109,7 +109,7 @@ class CuratorTest < Minitest::Test
   def test_it_can_load_photographs 
     photo_data = './data/photographs.csv'
     assert_instance_of Array, @curator.load_photographs(photo_data)
-    assert_equal_30, @curator.load_photographs(photo_data)
-    assert_equal true, @curator.load_photographs(photo_data).all? {|photo| photo.class == add_photograph}
+    assert_equal 4, @curator.load_photographs(photo_data).size
+    assert_equal true, @curator.load_photographs(photo_data).all? {|photo| photo.class == Photograph}
   end
 end
